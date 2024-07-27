@@ -29,7 +29,7 @@ const Slide = () => {
           }
         `}
             </style>
-            <div className="absolute md:top-52 sm:top-40 top-35 left-0 right-0 z-10  flex justify-center py-4 flex-col-reverse items-center ">
+            <div className="absolute md:top-52 sm:top-35 top-35 left-0 right-0 z-10  flex justify-center py-4 flex-col-reverse items-center ">
                 <input
                     type="text"
                     placeholder="Search..."
@@ -37,7 +37,7 @@ const Slide = () => {
                 />
                 <p className="md:text-2xl sm:text-xl text-sm py-2 font-semibold text-white">Search the catogory</p>
             </div>
-            <Swiper className="mySwiper xl:h-[75vh] lg:h-[70vh] md:h-[60vh] sm:h-[55vh] h-[40vh] xl:rounded-[32px] md:rounded-[28px] sm:rounded-[24px] rounded-2xl w-full flex items-center justify-center " pagination={{ clickable: true }}
+            <Swiper className="mySwiper xl:h-[75vh] lg:h-[70vh] md:h-[75vh] sm:h-[55vh] h-[40vh] xl:rounded-[32px] md:rounded-[28px] sm:rounded-[24px] rounded-2xl w-full flex items-center justify-center " pagination={{ clickable: true }}
                 modules={[Autoplay, Pagination]}
                 spaceBetween={50}
                 slidesPerView={1}
