@@ -18,6 +18,7 @@ app.use("/api",require('./routes/loginuser'))
 app.use("/api",require('./routes/verifyuser'))
 app.use("/api",require('./routes/forgetpass'))
 app.use("/api",require('./routes/resetpassword'))
+app.use("/api",require('./routes/fooddata'))
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
