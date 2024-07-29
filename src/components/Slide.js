@@ -40,7 +40,7 @@ const Slide = () => {
                 />
                 <p className="md:text-2xl sm:text-xl text-sm py-2 font-semibold text-white">Search the catogory</p>
             </div>
-            <Swiper className="mySwiper xl:h-[75vh] lg:h-[70vh] md:h-[75vh] sm:h-[55vh] h-[30vh] xl:rounded-[32px] md:rounded-[28px] sm:rounded-[24px] rounded-2xl w-full flex items-center justify-center " pagination={{ clickable: true }}
+            <Swiper className="mySwiper xl:h-[75vh] lg:h-[70vh] md:h-[75vh] sm:h-[55vh] h-[28vh] xl:rounded-[32px] md:rounded-[28px] sm:rounded-[24px] rounded-2xl w-full flex items-center justify-center " pagination={{ clickable: true }}
                 modules={[Autoplay, Pagination]}
                 spaceBetween={50}
                 slidesPerView={1}

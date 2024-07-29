@@ -39,7 +39,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? "block" : "hidden"}`} id="navbar-cta">
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 md:space-y-0 space-y-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700">
             <li>
               <Link to="/" onClick={closeMenu} className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent" aria-current="page">
                 Home
