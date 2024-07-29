@@ -6,7 +6,7 @@ const Signup = () => {
     const navigate = useNavigate();
   const handelsubmit=async(e)=>{
     e.preventDefault();
-    try{  const response= await fetch("http://localhost:5000/api/createuser",
+    try{  const response= await fetch("http://zd-backend.vercel.app/api/createuser",
         {
             method:"post",
             headers:{
