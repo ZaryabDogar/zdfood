@@ -6,7 +6,7 @@ const Forgotpassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/forgetpass', {
+      const response = await fetch('https://zd-backend.vercel.app/api/forgetpass', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

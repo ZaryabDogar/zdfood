@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   const fetchData = async () => {
-    let response = await fetch("http://localhost:5000/api/fooddata", {
+    let response = await fetch("https://zd-backend.vercel.app/api/fooddata", {
       method: "GET"
     });
     const data = await response.json();

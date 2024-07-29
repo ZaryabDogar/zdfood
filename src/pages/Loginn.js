@@ -8,7 +8,7 @@ const Loginn = () => {
     const { login } = useAuth();
   const handelsubmit=async(e)=>{
     e.preventDefault();
-    try{  const response= await fetch("http://zd-backend.vercel.app/api/loginuser",
+    try{  const response= await fetch("https://zd-backend.vercel.app/api/loginuser",
         {
             method:"post",
             headers:{
