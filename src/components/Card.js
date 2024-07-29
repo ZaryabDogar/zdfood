@@ -2,11 +2,10 @@ import React from 'react'
 
 const Card = (props) => {
     const fooddata = { ...props }
-    console.log(fooddata.food_data
-    )
+
 
     let options = fooddata.food_data.options[0]
-    console.log(options)
+
     let priceoptions = Object.keys(options)
     return (
 

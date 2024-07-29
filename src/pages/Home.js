@@ -25,6 +25,7 @@ const Home = () => {
     const data = await response.json();
     setFooddata(data.food_data);
     setFoodcat(data.foodcatagory);
+    
   };
 
   const filteredFoodData = fooddata.filter(food =>

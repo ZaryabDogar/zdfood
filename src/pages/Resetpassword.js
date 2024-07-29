@@ -23,7 +23,7 @@ const Resetpassword = () => {
         alert(result.message);
       }
     } catch (error) {
-      alert('Error resetting password');
+      alert('Error resetting password: '+error);
     }
   };
 
