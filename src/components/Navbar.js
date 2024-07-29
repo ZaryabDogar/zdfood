@@ -72,7 +72,7 @@ const Navbar = () => {
                     logout();
                     closeMenu();
                   }}
-                  className="block py-2 px-3 md:px-3 md:py-1.5 rounded hover:bg-blue-500 text-white bg-blue-700 border-gray-700"
+                  className="w-full block py-2 px-3 md:px-3 md:py-1.5 rounded hover:bg-blue-500 text-white bg-blue-700 border-gray-700"
                 >
                   Logout
                 </button>
