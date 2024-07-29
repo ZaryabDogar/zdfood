@@ -46,12 +46,12 @@ const Navbar = () => {
             {!isAuthenticated ? (
               <>
                 <li>
-                  <Link to="/login" className="block py-2 px-3 md:p-0 rounded md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">
+                  <Link to="/login" className="block py-2 px-3 md:px-3 md:py-1.5 rounded hover:bg-blue-500 text-white bg-blue-700  border-gray-700">
                     Login
                   </Link>
                 </li>
                 <li>
-                  <Link to="/signup" className="block py-2 px-3 md:p-0 rounded md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">
+                  <Link to="/signup" className="block py-2 px-3 md:px-3 md:py-1.5 rounded hover:bg-blue-500 text-white bg-blue-700  border-gray-700">
                     Signup
                   </Link>
                 </li>
@@ -60,7 +60,7 @@ const Navbar = () => {
               <li>
                 <button
                    onClick={() => logout()}
-                  className="block py-2 px-3 md:p-0 rounded md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"
+                  className="block py-2 px-3 md:px-3 md:py-1.5 rounded hover:bg-blue-500 text-white bg-blue-700  border-gray-700"
                 >
                   Logout
                 </button>

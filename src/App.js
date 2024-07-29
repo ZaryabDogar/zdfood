@@ -10,9 +10,11 @@ import Verifyemail from './pages/Verifyemail';
 import Forgotpassword from './pages/Forgetpassword';
 import Resetpassword from './pages/Resetpassword';
 import { Routes, Route } from "react-router-dom";
+import { SearchProvider } from './Context/SearchContext';
 function App() {
   return (
 <div className='min-h-screen'>
+<SearchProvider>
 <Navbar/>
 
       <Routes>
@@ -29,7 +31,7 @@ function App() {
           {/* <Route path="*" element={<NoPage />} /> */}
        
       </Routes>
-
+      </SearchProvider>
 </div>
   );
 }
