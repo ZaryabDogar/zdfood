@@ -22,9 +22,9 @@ const Navbar = () => {
           <span className="self-center md:text-2xl sm:text-lg text-sm font-semibold whitespace-nowrap text-white">ZD_Corner</span>
         </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button type="button" className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm sm:px-4 sm:py-2 px-3 py-1.5 text-center bg-blue-600 hover:bg-blue-700">
-            Get started
-          </button>
+        <Link to="/cart" ><button type="button" className="text-white font-medium rounded-lg text-sm sm:px-4 sm:py-2 px-3 py-1.5 text-center bg-blue-600 hover:bg-blue-700">
+            My Cart <span className="bg-red-900 text-red-100 text-xs font-medium  h-3 w-3 px-1.5 py-1.5 rounded-full ">1</span>
+          </button></Link>
           <button
             onClick={toggleMenu}
             type="button"

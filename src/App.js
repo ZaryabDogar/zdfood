@@ -12,6 +12,8 @@ import Resetpassword from './pages/Resetpassword';
 import Signup from './pages/Signup';
 import Verification from './pages/Verification';
 import Verifyemail from './pages/Verifyemail';
+
+import Cart from "./pages/Cart";
 function App() {
   return (
     <div className='min-h-screen'>
@@ -26,6 +28,7 @@ function App() {
             <Route path="orders" element={<Orders />} />
             <Route path="login" element={<Loginn />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="cart" element={<Cart />} />
             <Route path="verification_success" element={<Verification />} />
             <Route path="verifyemail" element={<Verifyemail />} />
             <Route path="forgetpassword" element={<Forgotpassword />} />
