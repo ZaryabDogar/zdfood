@@ -4,11 +4,18 @@ import { useCart, useDispatch } from "../Context/ContextReducer";
 export default function Cart() {
     let dispatch = useDispatch();
     let cart = useCart();
+    const handleDel = async (index) => {
+        await dispatch({
+            type: 'REMOVE',
+            index:index
+        });
+    };
+
     let totalprice=cart.reduce((total,food)=>total+food.price,0)
-    console.log(totalprice)
+   
     if (cart.length === 0) {
         return (
-            <div className='w-full flex justify-center items-center mt-5 sm:p-5 p-3'>
+            <div className='w-full flex justify-center items-center  sm:p-5 p-3  sm:pt-28 pt-20'>
                 <div className="relative  max-w-screen-xl overflow-x-auto shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -45,7 +52,7 @@ export default function Cart() {
     } else {
         return (
             <div>
-            <div className='w-full overflow-x-auto sm:flex justify-center items-center mt-5 sm:p-5 p-3
+            <div className='w-full overflow-x-auto sm:flex justify-center items-center  sm:p-5 sm:pt-28 pt-20 p-3
        flex-col '>
 
                 <div className="relative  md:max-w-screen-xl max-w-5xl overflow-x-auto shadow-md sm:rounded-lg">
@@ -77,9 +84,11 @@ export default function Cart() {
                                  <tr className=" border-b bg-gray-800 border-gray-700" key={index}>
                                 <td className="px-6 py-4">
                                     {index+1}
+                                  
                                 </td>
-                                <th scope="row" className="px-6 py-4 font-medium  whitespace-nowrap text-white">
-                                    {data.name}
+                                <th scope="row" className="px-6 py-4 font-medium space-x-3  flex  justify-end items-center whitespace-nowrap text-white">
+                                    <p>{data.name} </p>
+                                     <img src={data.img} alt="" className='w-10 h-10' />
                                 </th>
                                 <td className="px-6 py-4">
                                     {data.quantity}
@@ -91,7 +100,7 @@ export default function Cart() {
                                     {data.price}
                                 </td>
                                 <td className="px-6 py-4">
-                                    <a href="#" className="font-medium text-red-500 hover:underline">Delete</a>
+                                    <p onClick={()=>{dispatch({type:'REMOVE',index:index})}} className="font-medium text-red-500 hover:underline cursor-pointer">Delete</p>
                                 </td>
                             </tr>
                             ))}
@@ -105,8 +114,8 @@ export default function Cart() {
             
            
                 </div>
-                <div className="flex flex-col justify-between overflow-x-auto  items-center p-2 m-1">
-                <div className="flex w-full justify-between sm:space-x-3 space-y-4 sm:flex-row flex-col items-center">
+                <div className="flex flex-col justify-between overflow-x-auto  items-center p-2 m-1 ">
+                <div className="flex w-full xl:max-w-5xl max-w-3xl justify-between sm:space-x-3 space-y-4 sm:flex-row flex-col items-center">
                 <p className="text-xl font-semibold text-white">Total : <span className='text-white  p-1.5 rounded-xl'>{totalprice}</span></p>
                 <p className="text-xl font-semibold text-white">GST 2% : <span className='text-white  p-1.5 rounded-xl'>{totalprice * (0.02).toFixed(2)}</span></p>
                 <p className="text-xl font-semibold text-white">SubTotal : <span className='text-white bg-red-800 p-1.5 rounded-xl'>{(totalprice * (0.02).toFixed(2)+totalprice)}</span></p></div>

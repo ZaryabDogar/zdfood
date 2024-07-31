@@ -18,9 +18,9 @@ function App() {
   return (
     <div className='min-h-screen'>
       <SearchProvider> 
-         <Navbar />
+         
         <CartProvider>
-        
+        <Navbar />
           <Routes>
 
 

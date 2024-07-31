@@ -26,9 +26,41 @@ const Card = React.memo((props) => {
             prevCartRef.current = cart; // Update the previous cart state
         }
     }, [cart]);
-
+    
     const handleCart = async () => {
-        await dispatch({
+        let food=[];
+        for(const item of cart){
+            if(item.id===fooddata._id){
+                food=item;
+                
+                break;
+            }
+        }
+        if(food.length!=[]){
+            if(food.size===size){
+                await dispatch({
+                    type: 'UPDATE',
+                    id: fooddata._id,
+                    price: selectedPrice,
+                    quantity: qty,
+                });
+                return
+            }
+            else  if(food.size!==size){
+    await dispatch ({
+            type: 'ADD',
+            id: fooddata._id,
+            name: fooddata.name,
+            img: fooddata.img,
+            price: selectedPrice,
+            quantity: qty,
+            size: size,
+        });
+        return
+            }
+        return
+        }
+        await dispatch ({
             type: 'ADD',
             id: fooddata._id,
             name: fooddata.name,
@@ -81,12 +113,12 @@ const Card = React.memo((props) => {
                     </div>
                 </div>
                 <div className="flex items-center justify-between">
-                    <span className="lg:text-3xl md:text-xl text-lg font-bold text-white">
+                    <span className="lg:text-[22px] md:text-lg text-[16px] font-bold text-white">
                         {selectedPrice} PKR
                     </span>
                     <div
                         onClick={handleCart}
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg md:px-4 px-2.5 py-2.5 text-center lg:text-lg text-sm dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg md:px-4 px-2.5 py-2.5 text-center lg:text-lg text-sm dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
                     >
                         Add to cart
                     </div>

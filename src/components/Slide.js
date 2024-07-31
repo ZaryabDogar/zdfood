@@ -8,7 +8,7 @@ import { useSearch } from '../Context/SearchContext';
 const Slide = () => {
     const { searchTerm, setSearchTerm } = useSearch();
     return (
-        <div className=' mx-auto w-full px-5 md:mt-0 sm:pt-4 pt-6 relative'>
+        <div className=' mx-auto w-full px-5 md:mt-0 sm:pt-28 pt-20 relative'>
             <style>
                 {`
           .swiper-pagination-bullet {

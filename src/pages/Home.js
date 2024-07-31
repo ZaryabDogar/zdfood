@@ -33,9 +33,9 @@ const Home = () => {
   );
 
   return (
-    <div>
+    <div className=''>
       <Slide />
-      <div className='md:p-8 p-6 mt-5'>
+      <div className='md:p-8 p-6 mt-5 '>
         {foodcat.map((data) => (
           <div key={data._id}>
             <h5 className='text-2xl text-white font-semibold underline underline-offset-8'>{data.CategoryName}</h5>

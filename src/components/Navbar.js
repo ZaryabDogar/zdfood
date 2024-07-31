@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../Context/Authcontext';
+import { useCart, useDispatch } from "../Context/ContextReducer";
 
 const Navbar = () => {
   const { isAuthenticated, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  let cart = useCart();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -15,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="border-gray-200 bg-gray-900">
+    <nav className="border-gray-200 bg-gray-900 fixed w-full z-[100] ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="ZD_Corner Logo" />
@@ -23,7 +24,7 @@ const Navbar = () => {
         </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <Link to="/cart" ><button type="button" className="text-white font-medium rounded-lg text-sm sm:px-4 sm:py-2 px-3 py-1.5 text-center bg-blue-600 hover:bg-blue-700">
-            My Cart <span className="bg-red-900 text-red-100 text-xs font-medium  h-3 w-3 px-1.5 py-1.5 rounded-full ">1</span>
+            My Cart <span className="bg-red-900 text-red-100 text-xs font-medium  h-3 w-3 px-1.5 py-1.5 rounded-full ">{cart.length}</span>
           </button></Link>
           <button
             onClick={toggleMenu}
