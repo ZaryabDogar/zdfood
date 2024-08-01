@@ -12,7 +12,7 @@ import Resetpassword from './pages/Resetpassword';
 import Signup from './pages/Signup';
 import Verification from './pages/Verification';
 import Verifyemail from './pages/Verifyemail';
-
+import Ordersuccess from "./pages/Ordersuccess";
 import Cart from "./pages/Cart";
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="cart" element={<Cart />} />
             <Route path="verification_success" element={<Verification />} />
+            <Route path="order_success" element={<Ordersuccess />} />
             <Route path="verifyemail" element={<Verifyemail />} />
             <Route path="forgetpassword" element={<Forgotpassword />} />
             <Route path="resetpassword/:token" element={<Resetpassword />} />

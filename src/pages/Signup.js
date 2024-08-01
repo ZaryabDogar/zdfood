@@ -36,7 +36,7 @@ const Signup = () => {
 setsignupdata({...signupdata,[e.target.name]:e.target.value})
   }
   return (
-    <div className=" w-full flex justify-center items-center h-full  p-10 py-5  ">
+    <div className=" w-full flex justify-center items-center h-full  p-10 py-5  sm:pt-28 pt-20">
 <form className="sm:max-w-xl max-w-screen-md w-full flex-col" onSubmit={handelsubmit}>
   
     <div className="mb-6">

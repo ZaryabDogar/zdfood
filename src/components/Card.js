@@ -12,12 +12,20 @@ const Card = React.memo((props) => {
     // Initialize state with default values
     const [qty, setQty] = useState(1);
     const [size, setSize] = useState(priceOptions[0] || "");
+    const [price, setPrice] = useState(options[priceOptions[0]] || 0);
 
     // Calculate final price based on size and quantity
-    const selectedPrice = size ? options[size] * qty : 0;
+    const selectedPrice = size ? price * qty : 0;
 
     // Use a ref to store the previous cart state
     const prevCartRef = useRef(cart);
+
+    // Update price when size changes
+    useEffect(() => {
+        if (size) {
+            setPrice(options[size] || 0);
+        }
+    }, [size, options]);
 
     // Log cart state whenever it changes
     useEffect(() => {
@@ -28,47 +36,38 @@ const Card = React.memo((props) => {
     }, [cart]);
     
     const handleCart = async () => {
-        let food=[];
-        for(const item of cart){
-            if(item.id===fooddata._id){
-                food=item;
-                
-                break;
-            }
-        }
-        if(food.length!=[]){
-            if(food.size===size){
+        let food = cart.find(item => item.id === fooddata._id);
+
+        if (food) {
+            if (food.size === size) {
                 await dispatch({
                     type: 'UPDATE',
                     id: fooddata._id,
-                    price: selectedPrice,
+                    price: price,
                     quantity: qty,
                 });
-                return
+            } else {
+                await dispatch({
+                    type: 'ADD',
+                    id: fooddata._id,
+                    name: fooddata.name,
+                    img: fooddata.img,
+                    price: price,
+                    quantity: qty,
+                    size: size,
+                });
             }
-            else  if(food.size!==size){
-    await dispatch ({
-            type: 'ADD',
-            id: fooddata._id,
-            name: fooddata.name,
-            img: fooddata.img,
-            price: selectedPrice,
-            quantity: qty,
-            size: size,
-        });
-        return
-            }
-        return
+        } else {
+            await dispatch({
+                type: 'ADD',
+                id: fooddata._id,
+                name: fooddata.name,
+                img: fooddata.img,
+                price: price,
+                quantity: qty,
+                size: size,
+            });
         }
-        await dispatch ({
-            type: 'ADD',
-            id: fooddata._id,
-            name: fooddata.name,
-            img: fooddata.img,
-            price: selectedPrice,
-            quantity: qty,
-            size: size,
-        });
     };
 
     return (

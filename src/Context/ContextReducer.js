@@ -6,21 +6,39 @@ const CartDispatchContext = createContext();
 const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD':
-            return [...state, { id: action.id, name: action.name,img:action.img, price: action.price, quantity: action.quantity, size: action.size }];
-        case 'REMOVE':
-            let newarr=[...state]
-            newarr.splice(action.index,1)
-            return newarr;
-        case 'UPDATE':
-            let arr=[...state]
-            arr.find((food,index)=>{
-                if(food.id==action.id){
-                    console.log(food.quantity,parseInt(action.quantity),action.price+food.price)
-                    arr[index]={...food,quantity:parseInt(action.quantity)+food.quantity,price:action.price+food.price}
+            return [
+                ...state,
+                {
+                    id: action.id,
+                    name: action.name,
+                    img: action.img,
+                    price: action.price,
+                    quantity: action.quantity,
+                    size: action.size,
+                    totalprice: action.price * action.quantity
                 }
-                return arr;
-            })
-            return arr
+            ];
+        case 'REMOVE':
+            return state.filter((_, index) => index !== action.index);
+        case 'UPDATE': {
+            return state.map((food) => {
+                if (food.id === action.id) {
+                    const newQuantity = parseInt(action.quantity, 10);
+                    const newTotalPrice = action.price * newQuantity;
+                    return {
+                        ...food,
+                        quantity: newQuantity,
+                        price: action.price,
+                        totalprice: newTotalPrice
+                    };
+                }
+                return food;
+            });
+        }
+        case "DROP":{
+            let emptyArr=[];
+            return emptyArr;
+        }
         default:
             return state;
     }
