@@ -40,9 +40,12 @@ export default function Cart() {
                 }
              )
 
-             
+
              const result=await response.json()
          
+
+
+             
              if(!result.success){
                 alert("404 Bad request! "+result.servererror)
               
