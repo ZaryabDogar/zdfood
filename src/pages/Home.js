@@ -24,7 +24,7 @@ const Home = () => {
     });
     const data = await response.json();
     setFooddata(data.food_data);
-    setFoodcat(data.foodcatagory);
+    setFoodcat(data.foodcatagory.reverse());
     
   };
 
